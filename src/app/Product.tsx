@@ -2,14 +2,15 @@ import { View } from "react-native";
 import { Title } from "@/components/Title";
 import { Header } from "@/components/Header";
 import { ButtonIcon } from "@/components/ButtonIcon";
+import { BottomRoutesProps } from "@/routes/BottomRoutes";
 
-export function Product() {
+export function Product({ navigation, route }: BottomRoutesProps<"product">) {
     return (
         <View style={{ flex: 1, padding: 32, paddingTop: 54 }}>
             <Header>
-                <ButtonIcon name="arrow-circle-left" />
+                <ButtonIcon name="arrow-circle-left" onPress={() => navigation.goBack()} />
                 <Title>
-                    Product
+                    Product {route.params?.id}
                 </Title>
             </Header>
         </View>
